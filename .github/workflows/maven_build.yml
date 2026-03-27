@@ -35,6 +35,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release delete latest --yes --cleanup-tag || true
+      - name: List target directory
+        run: ls -R target/
 
       - name: Create GitHub Release and upload JAR
         env:
