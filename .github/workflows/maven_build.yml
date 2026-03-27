@@ -28,7 +28,7 @@ jobs:
       - name: Set version in version.json
         run: |
           VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
-          echo "{\"version\":\"$VERSION\",\"url\":\"https://github.com/minchen202/event/releases/latest/download/event.jar\"}" > version.json
+          echo "{\"version\":\"$VERSION\",\"url\":\"https://github.com/minchen202/event/releases/latest/download/event-1.0-SNAPSHOT.jar\"}" > version.json
 
       - name: Delete existing 'latest' release
         env:
