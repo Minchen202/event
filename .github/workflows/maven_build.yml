@@ -3,7 +3,7 @@ name: Build Maven Plugin
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
