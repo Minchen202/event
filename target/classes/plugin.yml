@@ -1,0 +1,8 @@
+name: event
+version: '1.0-SNAPSHOT'
+main: org.event.event.Event
+api-version: '1.21'
+commands:
+  event:
+    description: Organize events
+    usage: /event create [name] | event end
