@@ -163,7 +163,7 @@ public final class Event extends JavaPlugin implements org.bukkit.event.Listener
     }
     private String[] fetchRemoteVersionInfo(Player player) throws Exception {
         player.sendMessage("Checking for updates...");
-        URL url = new URL("https://github.com/minchen202/pvp/releases/latest/download/version.json");
+        URL url = new URL("https://github.com/minchen202/event/releases/latest/download/version.json");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
