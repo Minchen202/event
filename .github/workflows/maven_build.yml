@@ -1,0 +1,46 @@
+name: Build Maven Plugin
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn --batch-mode clean verify
+
+      - name: Set version in version.json
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "{\"version\":\"$VERSION\",\"url\":\"https://github.com/minchen202/event/releases/latest/download/event.jar\"}" > version.json
+
+      - name: Delete existing 'latest' release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+
+      - name: Create GitHub Release and upload JAR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create latest target/event.jar version.json \
+            --title "Latest Build" \
+            --notes "Auto-built from main" \
+            --latest
