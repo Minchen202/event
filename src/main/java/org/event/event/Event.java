@@ -281,7 +281,7 @@ public final class Event extends JavaPlugin implements org.bukkit.event.Listener
                         player.sendMessage("Found new version: " + remoteVersion + ". Downloading...");
                         File updateFolder = Bukkit.getUpdateFolderFile();
                         if (!updateFolder.exists()) updateFolder.mkdirs();
-                        File file = new File(updateFolder, "event.jar");
+                        File file = new File(updateFolder, "event-1.0.jar");
                         BufferedInputStream in = new BufferedInputStream((new URL(downloadUrl)).openStream());
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         byte[] dataBuffer = new byte[1024];
