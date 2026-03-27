@@ -40,7 +40,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create latest target/event.jar version.json \
+          gh release create latest target/event-1.0-SNAPSHOT.jar version.json \
             --title "Latest Build" \
             --notes "Auto-built from main" \
             --latest
