@@ -58,6 +58,10 @@ public final class Event extends JavaPlugin implements org.bukkit.event.Listener
             sender.sendMessage("Only players can use this command.");
             return true;
         }
+        if (!sender.isOp()) {
+            sender.sendMessage("You do not have permission to use this command.");
+            return true;
+        }
 
         Player player = (Player) sender;
 
