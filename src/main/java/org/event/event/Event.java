@@ -58,10 +58,7 @@ public final class Event extends JavaPlugin implements org.bukkit.event.Listener
             sender.sendMessage("Only players can use this command.");
             return true;
         }
-        if (!sender.isOp()) {
-            sender.sendMessage("You do not have permission to use this command.");
-            return true;
-        }
+
 
         Player player = (Player) sender;
 
@@ -91,6 +88,10 @@ public final class Event extends JavaPlugin implements org.bukkit.event.Listener
     }
 
     private void handleCreate(Player player, String[] args) {
+        if (!player.isOp()) {
+            player.sendMessage("You do not have permission to use this command.");
+            return;
+        }
         if (currentEventName != null) {
             player.sendMessage("§cAn event is already running: " + currentEventName);
             return;
