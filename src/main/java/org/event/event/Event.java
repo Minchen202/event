@@ -26,8 +26,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public final class Event extends JavaPlugin implements org.bukkit.event.Listener {
-    private final UUID authorizedUser = UUID.fromString("fdafb296-2e7b-49fd-b1b7-8c53578c77cf");
-    private final UUID authorizedUser2 = UUID.fromString("d1982e1a-9c2f-48b0-b232-072b2f86b2ec");
     private String currentEventName = null;
     private Location eventLocation = null;
     public static final AtomicInteger execDepth = new AtomicInteger(0);
